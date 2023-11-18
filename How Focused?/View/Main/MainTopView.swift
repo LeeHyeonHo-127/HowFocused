@@ -38,9 +38,11 @@ extension MainTopView: ViewCodeProtocol{
     func configureView() {
         dateLabel.text = "1 1 월 1 6 일"
         dateLabel.font = UIFont(name: "Impact", size: 45)
+        dateLabel.textColor = .howFocusWhite
         
         dayOfWeekLabel.text = "수요일"
         dayOfWeekLabel.font = UIFont(name: "Impact", size: 45)
+        dayOfWeekLabel.textColor = .howFocusWhite
     }
 }
 
