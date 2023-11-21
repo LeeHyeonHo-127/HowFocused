@@ -15,7 +15,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .howFocusBlack
+        view.backgroundColor = .white
         applyViewCode()
         collectionViewSetUp()
     }
