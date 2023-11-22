@@ -15,7 +15,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .howFocusCharcoal
         applyViewCode()
         collectionViewSetUp()
     }
@@ -36,7 +36,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionViewConstroller.collectionView.delegate = self
         collectionViewConstroller.collectionView.dataSource = self
         collectionViewConstroller.collectionView.register(MainCollectionViewCell_1.self, forCellWithReuseIdentifier: "MainCollectionViewCell_1")
-        collectionViewConstroller.collectionView.backgroundColor = .howFocusBlack
+        collectionViewConstroller.collectionView.backgroundColor = .howFocusCharcoal
         
         
         collectionViewConstroller.collectionView.snp.makeConstraints{
