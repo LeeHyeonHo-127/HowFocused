@@ -18,6 +18,8 @@
 		C108D9D32B05ECEE007E2481 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = C108D9D22B05ECEE007E2481 /* SnapKit-Dynamic */; };
 		C108D9D62B05ED2C007E2481 /* MainTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C108D9D52B05ED2C007E2481 /* MainTopView.swift */; };
 		C1AEC2452B05FD17008B3DA7 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AEC2442B05FD17008B3DA7 /* MainCollectionViewCell.swift */; };
+		C1E237B72B184DE60032CD7B /* MosaicLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E237B62B184DE60032CD7B /* MosaicLayout.swift */; };
+		C1E237BA2B184E900032CD7B /* CGRect+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E237B92B184E900032CD7B /* CGRect+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		C108D9CD2B05ECDA007E2481 /* UIPreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPreView.swift; sourceTree = "<group>"; };
 		C108D9D52B05ED2C007E2481 /* MainTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopView.swift; sourceTree = "<group>"; };
 		C1AEC2442B05FD17008B3DA7 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		C1E237B62B184DE60032CD7B /* MosaicLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MosaicLayout.swift; sourceTree = "<group>"; };
+		C1E237B92B184E900032CD7B /* CGRect+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,7 @@
 		C108D9B32B05E9A3007E2481 /* How Focused? */ = {
 			isa = PBXGroup;
 			children = (
+				C1E237B82B184E790032CD7B /* Extensions */,
 				C108D9CA2B05E9C0007E2481 /* Controller */,
 				C108D9C92B05E9BB007E2481 /* View */,
 				C108D9C82B05E9B6007E2481 /* Model */,
@@ -108,8 +113,17 @@
 			children = (
 				C108D9D52B05ED2C007E2481 /* MainTopView.swift */,
 				C1AEC2442B05FD17008B3DA7 /* MainCollectionViewCell.swift */,
+				C1E237B62B184DE60032CD7B /* MosaicLayout.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		C1E237B82B184E790032CD7B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C1E237B92B184E900032CD7B /* CGRect+.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,11 +205,13 @@
 			files = (
 				C108D9CE2B05ECDA007E2481 /* UIPreView.swift in Sources */,
 				C108D9B92B05E9A3007E2481 /* ViewController.swift in Sources */,
+				C1E237BA2B184E900032CD7B /* CGRect+.swift in Sources */,
 				C1AEC2452B05FD17008B3DA7 /* MainCollectionViewCell.swift in Sources */,
 				C108D9CC2B05EAF6007E2481 /* ViewCodeProtocol.swift in Sources */,
 				C108D9B52B05E9A3007E2481 /* AppDelegate.swift in Sources */,
 				C108D9D62B05ED2C007E2481 /* MainTopView.swift in Sources */,
 				C108D9B72B05E9A3007E2481 /* SceneDelegate.swift in Sources */,
+				C1E237B72B184DE60032CD7B /* MosaicLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

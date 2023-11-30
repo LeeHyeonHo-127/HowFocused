@@ -7,8 +7,18 @@ class MainTopView: UIView{
     lazy var dateLabel: UILabel = UILabel()
     lazy var dayOfWeekLabel: UILabel = UILabel()
     
+    lazy var topLabel: UILabel = {
+        let label = UILabel()
+        label.text = "괜찮아 할 수 있어. 파이팅."
+        label.font = UIFont.systemFont(ofSize: 20)
+        label.textColor = UIColor.black
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.sizeToFit()
+        
         applyViewCode()
     }
     
@@ -19,30 +29,26 @@ class MainTopView: UIView{
 
 extension MainTopView: ViewCodeProtocol{
     func buildViewHierachy() {
-        addSubview(dateLabel)
-        addSubview(dayOfWeekLabel)
+//        addSubview(dateLabel)
+//        addSubview(dayOfWeekLabel)
+        addSubview(topLabel)
     }
     
     func setUpConstraint() {
-        dateLabel.snp.makeConstraints{ make in
-            make.top.equalToSuperview()
-            make.leading.equalTo(15)
-        }
         
-        dayOfWeekLabel.snp.makeConstraints{ make in
-            make.top.equalTo(dateLabel.snp.bottom)
-            make.leading.equalTo(dateLabel.snp.leading)
+        
+        topLabel.snp.makeConstraints{ make in
+            make.top.equalToSuperview()
+            make.centerX.equalToSuperview()
         }
+//        dayOfWeekLabel.snp.makeConstraints{ make in
+//            make.top.equalTo(dateLabel.snp.bottom)
+//            make.leading.equalTo(dateLabel.snp.leading)
+//        }
     }
     
     func configureView() {
-        dateLabel.text = "1 1 월 1 6 일"
-        dateLabel.font = UIFont(name: "Impact", size: 45)
-        dateLabel.textColor = .systemGray5
         
-        dayOfWeekLabel.text = "수요일"
-        dayOfWeekLabel.font = UIFont(name: "Impact", size: 45)
-        dayOfWeekLabel.textColor = .systemGray5
     }
 }
 
