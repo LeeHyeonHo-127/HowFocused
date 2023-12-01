@@ -12,8 +12,8 @@ import SnapKit
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     var mainTopView = MainTopView()
-    var collectionViewConstroller: UICollectionViewController = UICollectionViewController()
-
+    var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .howFocus2Beige
@@ -21,68 +21,76 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionViewSetUp()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if collectionView.numberOfItems(inSection: 0) > 0 {
+            collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: false)
+        }
+    }
+    
+    //CollectionView의 객체를 정의, 위치와 속성을 설정합니다.
     func collectionViewSetUp(){
-        
         let mosaicLayout = MosaicLayout()
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: mosaicLayout)
+        collectionView.backgroundColor = .howFocus2Beige
+        collectionView.alwaysBounceVertical = true
+        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
         
-        /*
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        flowLayout.minimumLineSpacing = 5
-        flowLayout.minimumInteritemSpacing = 5
-        flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height/9)
-        flowLayout.scrollDirection = .vertical
-        */
-        
-        collectionViewConstroller.collectionView = UICollectionView(frame: .zero, collectionViewLayout: mosaicLayout)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(MosaicCollectionViewCell.self, forCellWithReuseIdentifier: MosaicCollectionViewCell.identifier)
+  
         
         
-        view.addSubview(collectionViewConstroller.collectionView)
         
-        collectionViewConstroller.collectionView.delegate = self
-        collectionViewConstroller.collectionView.dataSource = self
-        collectionViewConstroller.collectionView.register(MainCollectionViewCell_1.self, forCellWithReuseIdentifier: "MainCollectionViewCell_1")
-        collectionViewConstroller.collectionView.backgroundColor = .howFocus2Beige
-        collectionViewConstroller.collectionView.sizeToFit()
+        view.addSubview(collectionView)
         
-        collectionViewConstroller.collectionView.snp.makeConstraints{
+        collectionView.snp.makeConstraints{
             $0.top.equalTo(mainTopView.topLabel.snp.bottom)
             $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview()
+//            $0.bottom.equalToSuperview()
             $0.leading.equalToSuperview().offset(15)
             $0.trailing.equalToSuperview().offset(-15)
+            
+            $0.width.equalToSuperview().offset(-30)
+            $0.height.equalToSuperview().offset(-40)
+            
         }
     }
 
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        60
+        1000
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCollectionViewCell_1", for: indexPath) as? MainCollectionViewCell_1 else {return UICollectionViewCell()}
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MosaicCollectionViewCell.identifier, for: indexPath) as? MosaicCollectionViewCell else {return UICollectionViewCell()}
+        
+        cell.timerLabel.text = "\(indexPath.row)"
+        
         switch indexPath.row {
-            
             case let x where x % 5 == 0:
-            cell.timerView1.backgroundColor = UIColor.howfocus2Red
+            cell.containterView.backgroundColor = UIColor.howfocus2Red
                 return cell
             
             case let x where x % 4 == 0:
-            cell.timerView1.backgroundColor = UIColor.howFocus2Blue
+            cell.containterView.backgroundColor = UIColor.howFocus2Blue
                 return cell
 
             
             case let x where x % 3 == 0:
-            cell.timerView1.backgroundColor = UIColor.white
+            cell.containterView.backgroundColor = UIColor.white
                 return cell
 
             
             case let x where x % 2 == 0:
-            cell.timerView1.backgroundColor = UIColor.howFocus2Brown
+            cell.containterView.backgroundColor = UIColor.howFocus2Brown
                 return cell
 
             
             case let x where x % 1 == 0:
-            cell.timerView1.backgroundColor = UIColor.howFocus2Yellow
+            cell.containterView.backgroundColor = UIColor.howFocus2Yellow
                 return cell
 
             default:
@@ -91,13 +99,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
 }
 
-extension ViewController: UICollectionViewDelegateFlowLayout{
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-    }
-}
-
-
 extension ViewController: ViewCodeProtocol{
     func buildViewHierachy() {
         view.addSubview(mainTopView)
@@ -105,7 +106,7 @@ extension ViewController: ViewCodeProtocol{
     
     func setUpConstraint() {
         mainTopView.snp.makeConstraints{ make in
-            make.top.equalTo(view.safeAreaLayoutGuide as! ConstraintRelatableTarget)
+            make.top.equalTo(view.safeAreaLayoutGuide)
             make.leading.equalToSuperview()
             make.width.equalToSuperview()
             make.height.equalTo(20)
@@ -114,17 +115,14 @@ extension ViewController: ViewCodeProtocol{
 }
 
 
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+
+struct VCPreview: PreviewProvider {
+    static var previews: some View {
+        ViewController().showPreView(.iPhone12Pro)
+    }
+}
+#endif
 
 
-
-//#if canImport(SwiftUI) && DEBUG
-//import SwiftUI
-//
-//struct VCPreview: PreviewProvider {
-//    static var previews: some View {
-//        ViewController().showPreView(.iPhone12Pro)
-//    }
-//}
-//#endif
-//
-//

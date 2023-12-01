@@ -4,9 +4,10 @@ import SnapKit
 
 class MainTopView: UIView{
     
-    lazy var dateLabel: UILabel = UILabel()
-    lazy var dayOfWeekLabel: UILabel = UILabel()
+    lazy var dateLabel: UILabel = UILabel() //날짜 라벨 입니다
+    lazy var dayOfWeekLabel: UILabel = UILabel() //요일 라벨 입니다
     
+    //응원 라벨 입니다
     lazy var topLabel: UILabel = {
         let label = UILabel()
         label.text = "괜찮아 할 수 있어. 파이팅."
@@ -15,16 +16,18 @@ class MainTopView: UIView{
         return label
     }()
     
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.sizeToFit()
-        
+
         applyViewCode()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
 }
 
 extension MainTopView: ViewCodeProtocol{
@@ -36,11 +39,12 @@ extension MainTopView: ViewCodeProtocol{
     
     func setUpConstraint() {
         
-        
+        //응원 라벨 Autolayout 지정 부분 입니다.
         topLabel.snp.makeConstraints{ make in
             make.top.equalToSuperview()
             make.centerX.equalToSuperview()
         }
+        
 //        dayOfWeekLabel.snp.makeConstraints{ make in
 //            make.top.equalTo(dateLabel.snp.bottom)
 //            make.leading.equalTo(dateLabel.snp.leading)

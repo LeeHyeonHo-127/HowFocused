@@ -19,7 +19,6 @@
      var cachedAttributes = [UICollectionViewLayoutAttributes]()
      
      
-     
      override func prepare() {
          super.prepare()
          
@@ -41,6 +40,7 @@
              let segmentFrame = CGRect(x: 0, y: lastFrame.maxY + 1.0, width: cvWidth, height: 200.0)
              
              var segmentRects = [CGRect]()
+             
              switch segment {
              case .fullWidth: // 1 + 1
                  let verticalSlices = segmentFrame.dividedIntegral(fraction: 0.5, from: .minYEdge)
@@ -54,7 +54,7 @@
              case .twoThirdsOneThird: // 1 + 1/2 + 1/2  (horizontalSlice)
                  let verticalSlices = segmentFrame.dividedIntegral(fraction: 0.5, from: .minYEdge)
                  let horizontalSlices = verticalSlices.second.dividedIntegral(fraction: 0.5, from: .minXEdge)
-                 segmentRects = [verticalSlices.first, horizontalSlices.first, horizontalSlices.first]
+                 segmentRects = [verticalSlices.first, horizontalSlices.first, horizontalSlices.second]
                  
              case .oneThirdTwoThirds: // 1 + 1
                  let verticalSlices = segmentFrame.dividedIntegral(fraction: 0.5, from: .minYEdge)
@@ -76,10 +76,10 @@
              
              //currentIndex에 따라 segment를 지정합니다.
              switch count - currentIndex {
-             case 1 :
-                 segment = .fullWidth
-             case 2:
-                 segment = .fiftyFifty
+//             case 1 :
+//                 segment = .fullWidth
+//             case 2:
+//                 segment = .fiftyFifty
              default:
                  switch segment{
                  case .fullWidth:
@@ -124,6 +124,11 @@
         
          for attributes in cachedAttributes[..<firstMatchIndex].reversed() {
              guard attributes.frame.maxY >= rect.minY else { break }
+             attributesArray.append(attributes)
+         }
+         
+         for attributes in cachedAttributes[firstMatchIndex...] {
+             guard attributes.frame.minY <= rect.maxY else { break }
              attributesArray.append(attributes)
          }
          

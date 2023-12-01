@@ -8,6 +8,7 @@
 import UIKit
 
 extension CGRect {
+    //CGRect를 자르고 두 CGRect를 반환합니다.
     func dividedIntegral(fraction: CGFloat, from fromEdge: CGRectEdge) -> (first: CGRect, second: CGRect){
         let dimension: CGFloat
         
@@ -19,7 +20,7 @@ extension CGRect {
         }
         
         let distance = (dimension * fraction).rounded(.up)
-        var slices = self.divided(atDistance: distance, from: fromEdge) //from 에서 distance 거리 만큼으로 CGRECT 를 분할한다
+        var slices = self.divided(atDistance: distance, from: fromEdge) //from 에서 distance 거리 만큼으로 CGRECT 를 분할합니다.
         
         switch fromEdge {
         case .minXEdge, .maxXEdge:
