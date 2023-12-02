@@ -61,13 +61,19 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        1000
+        100
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MosaicCollectionViewCell.identifier, for: indexPath) as? MosaicCollectionViewCell else {return UICollectionViewCell()}
         
         cell.timerLabel.text = "\(indexPath.row)"
+        
+        if indexPath.row + 1 != collectionView.numberOfItems(inSection: 0){
+            cell.timerLabel.text = "\(indexPath.row)"
+        }else {
+            cell.timerLabel.text = "+"
+        }
         
         switch indexPath.row {
             case let x where x % 5 == 0:
