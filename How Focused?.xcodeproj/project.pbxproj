@@ -20,6 +20,7 @@
 		C1AEC2452B05FD17008B3DA7 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AEC2442B05FD17008B3DA7 /* MainCollectionViewCell.swift */; };
 		C1E237B72B184DE60032CD7B /* MosaicLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E237B62B184DE60032CD7B /* MosaicLayout.swift */; };
 		C1E237BA2B184E900032CD7B /* CGRect+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E237B92B184E900032CD7B /* CGRect+.swift */; };
+		C1E61D422B1B0187002DF226 /* Itim-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C1E61D412B1B0187002DF226 /* Itim-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		C1AEC2442B05FD17008B3DA7 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		C1E237B62B184DE60032CD7B /* MosaicLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MosaicLayout.swift; sourceTree = "<group>"; };
 		C1E237B92B184E900032CD7B /* CGRect+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+.swift"; sourceTree = "<group>"; };
+		C1E61D412B1B0187002DF226 /* Itim-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Itim-Regular.ttf"; path = "../../../../../../../../Itim/Itim-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +72,7 @@
 		C108D9B32B05E9A3007E2481 /* How Focused? */ = {
 			isa = PBXGroup;
 			children = (
-				C1E237B82B184E790032CD7B /* Extensions */,
+				C1E61D3D2B1AFE7D002DF226 /* Global */,
 				C108D9CA2B05E9C0007E2481 /* Controller */,
 				C108D9C92B05E9BB007E2481 /* View */,
 				C108D9C82B05E9B6007E2481 /* Model */,
@@ -124,6 +126,23 @@
 				C1E237B92B184E900032CD7B /* CGRect+.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C1E61D3D2B1AFE7D002DF226 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				C1E61D3E2B1AFE8C002DF226 /* Fonts */,
+				C1E237B82B184E790032CD7B /* Extensions */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		C1E61D3E2B1AFE8C002DF226 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C1E61D412B1B0187002DF226 /* Itim-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1E61D422B1B0187002DF226 /* Itim-Regular.ttf in Resources */,
 				C108D9C12B05E9A5007E2481 /* LaunchScreen.storyboard in Resources */,
 				C108D9BE2B05E9A5007E2481 /* Assets.xcassets in Resources */,
 			);

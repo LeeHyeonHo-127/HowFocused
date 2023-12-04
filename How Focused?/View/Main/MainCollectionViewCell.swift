@@ -16,8 +16,8 @@ class MosaicCollectionViewCell: UICollectionViewCell{
     
     lazy var timerLabel: UILabel = {
         let label = UILabel()
-         label.font = UIFont(name: "IMPACT", size: 40)
-         label.text = "0 1 H 0 1 M"
+         label.font = UIFont(name: "Itim-Regular", size: 40)
+         label.text = "01H 01M"
          return label
      }()
     
