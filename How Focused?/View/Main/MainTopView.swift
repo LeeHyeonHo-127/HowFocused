@@ -32,8 +32,6 @@ class MainTopView: UIView{
 
 extension MainTopView: ViewCodeProtocol{
     func buildViewHierachy() {
-//        addSubview(dateLabel)
-//        addSubview(dayOfWeekLabel)
         addSubview(topLabel)
     }
     
@@ -44,11 +42,6 @@ extension MainTopView: ViewCodeProtocol{
             make.top.equalToSuperview()
             make.centerX.equalToSuperview()
         }
-        
-//        dayOfWeekLabel.snp.makeConstraints{ make in
-//            make.top.equalTo(dateLabel.snp.bottom)
-//            make.leading.equalTo(dateLabel.snp.leading)
-//        }
     }
     
     func configureView() {
