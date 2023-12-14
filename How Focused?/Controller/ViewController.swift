@@ -3,7 +3,7 @@
 //  How Focused?
 //
 //  Created by 이현호 on 2023/11/16.ddd
-//
+
 
 import UIKit
 import SnapKit
@@ -13,6 +13,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     var mainTopView = MainTopView()
     var collectionView: UICollectionView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
