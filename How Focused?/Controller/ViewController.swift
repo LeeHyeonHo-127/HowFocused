@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  How Focused?
 
-//  Created by 이현호 on 2023/11/16.ddd
+//  Created by 이현호 on 2023/11/16.
 
 
 import UIKit
