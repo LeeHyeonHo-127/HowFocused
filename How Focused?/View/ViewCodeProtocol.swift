@@ -1,4 +1,4 @@
-//view code protocolㅓ
+//view code protocol
 import Foundation
 
 public protocol ViewCodeProtocol {
